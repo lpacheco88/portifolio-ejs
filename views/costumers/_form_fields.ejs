@@ -1,0 +1,30 @@
+<div>
+    <label>Name</label>
+    <input type="text" name="name" value="<%= costumer.name %>">
+</div>
+<div>
+    <label>Costumer site</label>
+    <input type="text" name="urlRoot" value="<%= costumer.urlRoot %>">
+</div>
+<div>
+    <label>Job Description</label>
+    <input type="text" name="jobDescription" value="<%= costumer.jobDescription %>">
+</div>
+<div>
+    <label>Started</label>
+    <input type="date" name="dateFrom"
+        value="<%= costumer.dateFrom == null ? '': costumer.dateFrom.toISOString().split('T')[0] %>">
+</div>
+<div>
+    <label>Ended</label>
+    <input type="date" name="dateFinal"
+        value="<%= costumer.dateFinal == null ? '': costumer.dateFinal.toISOString().split('T')[0] %>">
+</div>
+<div>
+    <label>Costumer review</label>
+    <input type="text" name="review" value="<%= costumer.review %>">
+</div>
+<div>
+    <label>Side note about</label>
+    <input type="text" name="sideNote" value="<%= costumer.sideNote %>">
+</div>

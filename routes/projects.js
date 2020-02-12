@@ -5,12 +5,14 @@ const Project = require('../model/project');
 //Get All projects route
 router.get('/', async (req, res) => {
 	try {
+		res.render('projects/index');
 	} catch (error) {}
 });
 
 //New project route
 router.get('/new', (req, res) => {
 	try {
+		res.render('projects/new', { project: new Project() });
 	} catch (error) {}
 });
 

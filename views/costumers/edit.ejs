@@ -1,0 +1,7 @@
+<h2 class="page-header">Edit Author</h2>
+
+<form action="/costumers/<%= costumer.id%>?_method=PUT" method="POST">
+    <%- include('_form_fields') %>
+    <a href="/costumers/<%=costumer.id%>">Cancel</a>
+    <button type="submit">Update</button>
+</form>

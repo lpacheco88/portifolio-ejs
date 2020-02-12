@@ -1,0 +1,7 @@
+<h2 class="page-header">Edit Skill</h2>
+
+<form action="/skills/<%= skill.id%>?_method=PUT" method="POST">
+    <%- include('_form_fields') %>
+    <a href="/skills/<%=skill.id%>">Cancel</a>
+    <button type="submit">Update</button>
+</form>

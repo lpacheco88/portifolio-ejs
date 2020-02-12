@@ -1,0 +1,11 @@
+<h2 class="page-header"><%= skill.name %></h2>
+
+<div>
+    Need of stacking overflow level: <%= skill.knowHowLevel%>
+</div>
+<div>
+    Working since: <%= skill.workingWithSince.toDateString()%>
+</div>
+
+<a href="/skills/<%=skill.id %>/edit">Edit</a>
+<%- include('../partials/deleteForm',{url: `/skills/${skill.id}`}) %>

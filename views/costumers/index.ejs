@@ -1,0 +1,15 @@
+<h1>this is costumer index</h1>
+
+
+
+<% costumers.forEach(costumer => { %>
+<div><%= costumer.name%></div>
+<div class="btn-row">
+    <a class="btn btn-primary" href="/costumers/<%= costumer.id%>">View</a>
+    <a class="btn btn-primary" href="/costumers/<%= costumer.id%>/edit">Edit</a>
+    <%- include('../partials/deleteForm', {url:`/costumers/${costumers.id}`})%>
+</div>
+<% }) %>
+
+
+<a href="costumers/new">Add costumer</a>

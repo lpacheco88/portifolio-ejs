@@ -1,0 +1,18 @@
+<div>
+    <label>Name</label>
+    <input type="text" name="name" value="<%= skill.name %>">
+</div>
+<div>
+    <label>Knowing since</label>
+    <input type="date" name="workingWithSince"
+        value="<%= skill.workingWithSince == null ? '': skill.workingWithSince.toISOString().split('T')[0] %>">
+
+
+</div>
+<div>
+    <label>Knowlegde level*</label>
+    <input type="number" name="knowHowLevel" value="<%= skill.knowHowLevel %>">
+</div>
+
+
+<p>*based on my beliefs among other things</p>

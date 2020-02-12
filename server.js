@@ -13,9 +13,9 @@ const db = mongoose.connection;
 
 //Routes
 const indexRouter = require('./routes/index');
-const projectRouter = require('./routes/project');
-const skillRouter = require('./routes/skill');
-const costumerRouter = require('./routes/costumer');
+const projectRouter = require('./routes/projects');
+const skillRouter = require('./routes/skills');
+const costumerRouter = require('./routes/costumers');
 
 //App setting and usage
 app.set('view engine', 'ejs');
@@ -36,7 +36,7 @@ db.once('open', () => {
 
 //App Routes usage call
 app.use('/', indexRouter);
-app.use('/', projectRouter);
-app.use('/', skillRouter);
-app.use('/', costumerRouter);
+app.use('/projects', projectRouter);
+app.use('/skills', skillRouter);
+app.use('/costumers', costumerRouter);
 app.listen(process.env.PORT || 3000);
