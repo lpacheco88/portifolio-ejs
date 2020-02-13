@@ -1,1 +1,36 @@
-<h1>shows project </h1>
+<h2 class="page-header"><%= project.name %></h2>
+
+
+<div>
+    Description of the project: <%= project.description%>
+</div>
+
+<div>
+    Backend used: <%= project.backEndTec%>
+</div>
+<div>
+    Frontend used: <%= project.frontEndTec%>
+</div>
+<div>
+    Date start: <%= project.startDate.toDateString()%>
+</div>
+<div>
+    End date: <%= project.endDate.toDateString()%>
+</div>
+<div>
+    canShowTheCode: <%= project.canShowTheCode%>
+</div>
+<div>
+    paidInFull: <%= project.paidInFull%>
+</div>
+<div>
+    privateProject: <%= project.privateProject%>
+</div>
+<div>
+    costumer: <%= project.costumer.name%>
+</div>
+
+
+
+<a href="/projects/<%=project.id %>/edit">Edit</a>
+<%- include('../partials/deleteForm',{url: `/projects/${project.id}`}) %>

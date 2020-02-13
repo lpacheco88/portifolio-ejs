@@ -1,5 +1,14 @@
 <h1>this is project index</h1>
 
+<% projects.forEach(project => { %>
+<div><%= project.name%></div>
+<div class="btn-row">
+    <a class="btn btn-primary" href="/projects/<%= project.id%>">View</a>
+    <a class="btn btn-primary" href="/projects/<%= project.id%>/edit">Edit</a>
+    <%- include('../partials/deleteForm', {url:`/projects/${project.id}`})%>
+</div>
+<% }) %>
+
 <div id="menu">
     <ul>
         <li><a href="projects/new">Adicionar projeto</a></li>

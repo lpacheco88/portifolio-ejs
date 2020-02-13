@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const costumer = require('./costumer');
+const Costumer = require('./costumer');
 
 const projectSchema = new mongoose.Schema({
 	name           : {
@@ -27,7 +27,7 @@ const projectSchema = new mongoose.Schema({
 		required : true
 	},
 	privateProject : {
-		type     : Boolean,
+		type     : Number,
 		required : true
 	},
 	canShowTheCode : {
@@ -35,7 +35,7 @@ const projectSchema = new mongoose.Schema({
 		required : true
 	},
 	paidInFull     : {
-		type     : Boolean,
+		type     : Number,
 		required : true
 	},
 	costumer       : {
@@ -43,6 +43,18 @@ const projectSchema = new mongoose.Schema({
 		required : true,
 		ref      : 'Costumer'
 	}
+});
+
+projectSchema.pre('remove', function(next){
+	Costumer.find({ costumer: this.id }, (err, costumers) => {
+		if (err) {
+			next(err);
+		} else if (costumers.length > 0) {
+			next(new Error('this costumer has projects stil'));
+		} else {
+			next();
+		}
+	});
 });
 
 module.exports = mongoose.model('Project', projectSchema);
