@@ -29,32 +29,53 @@
 </div>
 <div>
     <label>Mine or someone else´s project</label>
+    <% var options = ["Select option","It is mine and made by me","No, it was costumer´s code I just gave it maintance","Costumer beggined the code and there was I"] %>
+    <%var values = [0,1,2,3] %>
+    <%var i = 0%>
     <select name="privateProject">
-        <% var options = ["Select option","It is mine and made by me","No, it was costumer´s code I just gave it maintance","Costumer beggined the code and there was I"] %>
-        <%var values = [0,1,2,3] %>
-        <%for(var i =0; i< options.length; i++) {%>
-        <%var selected = ( project.privateProject == i ) ? "selected" : "";%>
-        <option label="<%= options[i]%>" value="<%= values[i]%>"></option>
-        <%} project.privateProject%>
+        <% costumers.forEach(costumer =>{ %>
+        <% if (values.includes(project.privateProject)){ %>
+        <option selected label="<%= options[i] %>" value="<%=values[i]%>"></option>
+        <% }else{%>
+        <option label="<%= options[i] %>" value="<%=values[i]%>"></option>
+        <%}%> 
+            <%i=i+1})%>
+    </select>
+
     </select>
 
 </div>
 <div>
     <label>Can I show the produced code?</label>
     <select name="canShowTheCode">
-        <option value="">Select option</option>
-        <option value="1">Yes, the code was mine and produced by me</option>
-        <option value="0">No, it was costumer´s code</option>
+        <%var options = ["Yes, the code was mine and produced by me","No, it was costumer´s code"]%>
+        <%var values = [0,1]%>
+        <%var i = 0%>
+
+        <% options.forEach(option =>{ %>
+        <% if (project.paidInFull){ %>
+        <option selected label="<%= options[i] %>" value="<%=values[i]%>"></option>
+        <% }else{%>
+        <option label="<%= options[i] %>" value="<%=values[i]%>"></option>
+        <%}%> 
+        <%i=i+1})%>
+
+
     </select>
 </div>
 <div>
     <label>How was I paid</label>
+    <% var options = ["Select option","Paid by hour","Paid by Project","Contract","On my own"] %>
+    <%var values = [0,1,2,3,4] %>
+    <%var i= 0 %>
     <select name="paidInFull">
-        <% var options = ["Select option","Paid by hour","Paid by Project","Contract","On my own"] %>
-        <%var values = [0,1,2,3,4] %>
-        <%for(var i =0; i< options.length; i++) {%>
-        <option label="<%= options[i]%>" value="<%= values[i]%>"></option>
-        <%} %>
+        <% costumers.forEach(costumer =>{ %>
+        <% if (values.includes(project.paidInFull)){ %>
+        <option selected label="<%= options[i] %>" value="<%=values[i]%>"></option>
+        <% }else{%>
+        <option label="<%= options[i] %>" value="<%=values[i]%>"></option>
+        <%}%> 
+        <%i=i+1})%>
     </select>
 </div>
 <div>

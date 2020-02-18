@@ -123,9 +123,9 @@ router.delete('/:id', async (req, res) => {
 		await skill.remove();
 		res.redirect('/skills');
 	} catch (error) {
-		if (costumer != null) {
+		if (skill != null) {
 			res.render('skills/show', {
-				costumer     : costumer,
+				skill     : skill,
 				errorMessage : 'Could not remove skill, reason: ' + error
 			});
 		} else {

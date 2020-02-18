@@ -16,6 +16,8 @@ const indexRouter = require('./routes/index');
 const projectRouter = require('./routes/projects');
 const skillRouter = require('./routes/skills');
 const costumerRouter = require('./routes/costumers');
+const gitRouter = require('./routes/git');
+const contactRouter = require('./routes/contact');
 
 //App setting and usage
 app.set('view engine', 'ejs');
@@ -39,4 +41,6 @@ app.use('/', indexRouter);
 app.use('/projects', projectRouter);
 app.use('/skills', skillRouter);
 app.use('/costumers', costumerRouter);
+app.use('/git',gitRouter);
+app.use('/contacts', contactRouter)
 app.listen(process.env.PORT || 3000);

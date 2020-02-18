@@ -1,15 +1,15 @@
-<h1>this is skill index</h1>
-
 <div>
+
     <% skills.forEach(skill => { %>
     <div><%= skill.name%></div>
     <div class="btn-row">
         <a class="btn btn-primary" href="/skills/<%= skill.id%>">View</a>
         <a class="btn btn-primary" href="/skills/<%= skill.id%>/edit">Edit</a>
-        <%- include('../partials/deleteForm', {url:`/skills/${skills.id}`})%>
+        <%- include('../partials/deleteForm', {url:`/skills/${skill.id}`})%>
     </div>
     <% }) %>
 
 
     <a href="skills/new">Add Skill</a>
-</div>
+
+</div>>
