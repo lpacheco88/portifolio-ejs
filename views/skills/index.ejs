@@ -1,9 +1,9 @@
-<div>
+<div class="jumbotron">
 
     <% skills.forEach(skill => { %>
     <div><%= skill.name%></div>
     <div class="btn-row">
-        <a class="btn btn-primary" href="/skills/<%= skill.id%>">View</a>
+        <a class="btn btn-primary" href="/skills/<%= skill.id%>">Ver+</a>
         <a class="btn btn-primary" href="/skills/<%= skill.id%>/edit">Edit</a>
         <%- include('../partials/deleteForm', {url:`/skills/${skill.id}`})%>
     </div>
