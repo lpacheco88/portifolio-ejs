@@ -3,8 +3,7 @@
     <% projects.forEach(project => { %>
     <div><%= project.name%></div>
     <div class="btn-row">
-        <a class="btn btn-primary" href="/projects/<%= project.id%>">Ver +</a>
-        <a class="btn btn-primary" href="/projects/<%= project.id%>/edit">Edit</a>
+        <%- include('../partials/crudBtn', {url:`/projects/${project.id}`})%>
         <%- include('../partials/deleteForm', {url:`/projects/${project.id}`})%>
     </div>
     <% }) %>

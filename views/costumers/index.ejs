@@ -2,8 +2,7 @@
     <% costumers.forEach(costumer => { %>
     <div><%= costumer.name%></div>
     <div class="btn-group" role="group" aria-label="Basic example">
-        <a class="btn btn-primary" href="/costumers/<%= costumer.id%>">Ver+</a>
-        <a class="btn btn-warning" href="/costumers/<%= costumer.id%>/edit">Edit</a>
+        <%- include('../partials/crudBtn', {url:`/costumer/${costumer.id}`})%>
         <%- include('../partials/deleteForm', {url:`/costumers/${costumer.id}`})%>
     </div>
 
