@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Costumer = require('../model/costumer');
+const imageMimeTypes = [ 'image/jpge', 'image/png', 'image/gif' ];
 
 //Get all costumer route
 router.get('/', async (req, res) => {
@@ -36,15 +37,18 @@ router.post('/', async (req, res) => {
 		review         : req.body.review,
 		sideNote       : req.body.sideNote
 	});
+	
+
+	saveCostumerImg(costumer, req.body.costuImg);
 
 	try {
 		const newCostumer = await costumer.save();
 		res.redirect(`costumers/${newCostumer.id}`);
 	} catch (error) {
-		res.render('costumers/new', {
-			costumer     : costumer,
-			errorMEssage : 'Error creating costumer'
-		});
+		if (costumer.coverImageName != null) {
+			removeBookCover(costumer.coverImageName);
+		}
+		renderNewPage(res, costumer, true, error);
 	}
 });
 
@@ -83,6 +87,9 @@ router.put('/:id', async (req, res) => {
 		costumer.review = req.body.review;
 		costumer.sideNote = req.body.sideNote;
 
+		if (req.body.costuImg != null && req.body.costuImg !== '') {
+			saveCover(costumer, req.body.costuImg);
+		}
 		await costumer.save();
 		res.redirect(`/costumers/${costumer.id}`);
 	} catch (error) {
@@ -140,4 +147,20 @@ router.delete('/:id', async (req, res) => {
 	}
 });
 
+function saveCostumerImg(costumer, imgEnconded){
+	
+	if (imgEnconded == null) return;
+	const costuImg = JSON.parse(imgEnconded);
+	if (costuImg != null && imageMimeTypes.includes(costuImg.type)) {
+		costumer.costumerImage = new Buffer.from(costuImg.data, 'base64');
+		costumer.costumerImageType = costuImg.type;
+	}
+}
+
+
+function removeImgCover(fileName){
+	fs.unlink(path.join(uploadPath, fileName), (err) => {
+		if (err) console.error(err);
+	});
+}
 module.exports = router;

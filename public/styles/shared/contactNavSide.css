@@ -1,0 +1,116 @@
+.follow-me {
+  z-index: 1001;
+  position: fixed;
+  left: 0;
+  top: calc(50% - (275px / 2));
+  width: 55px;
+  height: 275px;
+}
+
+.follow-me a {
+  display: -webkit-flex;
+  -webkit-align-items: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 75px;
+  height: 55px;
+  padding-left: 20px;
+  margin-left: -20px;
+  transition: transform 425ms cubic-bezier(0.05, 0.65, 0.18, 1);
+}
+
+/* Facebook styles */
+.follow-me .facebook {
+  background-color: #4868ad;
+}
+
+.follow-me .facebook span {
+  background-position: -3px -104px;
+}
+
+/* Github styles */
+.follow-me .github {
+  background-color: #4e545a;
+}
+
+.follow-me .github span {
+  background-position: 0 -35px;
+}
+
+/* LinkedIn styles */
+.follow-me .linkedin {
+  background-color: #0077ba;
+}
+
+.follow-me .linkedin span {
+  background-position: 0 -140px;
+}
+
+/* Twitter styles */
+.follow-me .twitter {
+  background-color: #3299ff;
+}
+.follow-me .twitter span {
+  background-position: 0 -69px;
+}
+
+/* instagram styles */
+.follow-me .instagram {
+  background: radial-gradient(
+      circle at 25% 110%,
+      #fdf497 0,
+      #fdf497 5%,
+      #fd5949 45%,
+      #d6249f 60%,
+      #285aeb 90%
+    ),
+    radial-gradient(
+      circle at 25% 110%,
+      #b9a800 0,
+      #938500 5%,
+      #b10f00 45%,
+      #8c0061 60%,
+      #002ca9 90%
+    );
+}
+
+.follow-me .club {
+  background-color: transparent;
+  opacity: 0.0005;
+  height: 10px;
+  width: 10px;
+}
+
+.follow-me small {
+  position: absolute;
+  top: -30px;
+  left: -2px;
+  width: 100%;
+  text-align: right;
+  color: #7a7a7a;
+  font-weight: 600;
+  font-size: 0.65em;
+}
+
+.follow-me li:nth-child(1) {
+  transition-delay: 0.65s, 0.65s;
+}
+
+.follow-me li {
+  transition: transform 425ms cubic-bezier(0.69, 0.03, 0.03, 0.93),
+    opacity 0.15s ease-out;
+}
+
+ul {
+  list-style: none;
+}
+
+.follow-me span {
+  display: block;
+  width: 35px;
+  height: 35px;
+  background: url(https://caferati.me/images/icons.svg) no-repeat 0 1px;
+  background-size: 100% auto;
+  text-indent: -9999em;
+}

@@ -1,4 +1,13 @@
+@import "shared/variables.css";
+@import "shared/contact.css";
+@import "shared/contactNavSide.css";
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
 .project-header {
-	background-color: azure;
-	text-align: center !important;
+  background-color: azure;
+  text-align: center !important;
 }

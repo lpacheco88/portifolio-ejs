@@ -27,9 +27,23 @@ const costumerSchema = new mongoose.Schema({
 		type     : String,
 		required : true
 	},
+	costumerImage     : {
+		type     : Buffer,
+		required : true
+	},
+	costumerImageType : {
+		type     : String,
+		required : true
+	},
 	sideNote       : {
 		type     : String,
 		required : true
+	}
+});
+
+costumerSchema.virtual('costumerImagePath').get(function(){
+	if (this.costumerImage != null && this.costumerImageType != null) {
+		return `data:${this.costumerImageType};charset=utf-8;base64,${this.costumerImage.toString('base64')}`;
 	}
 });
 
