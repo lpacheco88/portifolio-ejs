@@ -1,0 +1,116 @@
+.spacing-small-bottom {
+  padding-bottom: 60px;
+}
+
+.section-title {
+  padding-bottom: 15px;
+  border-bottom: 10px solid #f6f6f6;
+  color: #919191;
+}
+
+.grid__col--6 {
+  width: 47%;
+}
+
+.grid__col--6:not(:nth-of-type(2n)):not(:last-child) {
+  margin-right: 3.7647058824%;
+}
+.grid {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.service {
+  padding: 10%;
+}
+
+.grid__col .service {
+  min-height: 100%;
+}
+
+.txt-center {
+  text-align: center;
+}
+
+.service,
+.full-service,
+.page-cta {
+  border-radius: 6px;
+  border-top: 6px solid #4b6cc1;
+  background: #f6f6f6;
+}
+
+.service__icon {
+  display: inline-block;
+}
+
+.download_area .download_left {
+  margin-bottom: 30px;
+}
+
+.download_area .download_left p {
+  font-size: 16px;
+  line-height: 28px;
+  color: #c9c9c9;
+  margin: 20px 0;
+}
+
+.boxed-btn3-line {
+  color: #db9a64 !important;
+  display: inline-block;
+  padding: 17px 49px;
+  font-family: roboto, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  border: 0;
+  border: 1px solid #db9a64;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  text-align: center;
+  text-transform: capitalize;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s;
+  cursor: pointer;
+  text-align: left;
+  margin-right: 60%;
+}
+
+.download_area .progress_skills .single_progress {
+  margin-bottom: 33px;
+}
+
+.download_area .progress_skills .single_progress .label {
+  margin-bottom: 16px;
+}
+
+.justify-content-between {
+  -webkit-box-pack: justify !important;
+  -ms-flex-pack: justify !important;
+  justify-content: space-between !important;
+}
+
+.d-flex {
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+}
+
+.download_area .progress_skills .single_progress .label span {
+  font-size: 16px;
+  color: #fff;
+  font-weight: 400;
+}
+
+.download_area .progress_skills .single_progress .progress {
+  height: 6px;
+  overflow: hidden;
+  font-size: 0.75rem;
+  background-color: #fff;
+  border-radius: 5px;
+}

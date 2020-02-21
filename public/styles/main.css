@@ -1,6 +1,7 @@
 @import "shared/variables.css";
 @import "shared/contact.css";
 @import "shared/contactNavSide.css";
+@import "shared/index.css";
 
 * {
   padding: 0;
