@@ -2,6 +2,7 @@
 @import "shared/contact.css";
 @import "shared/contactNavSide.css";
 @import "shared/index.css";
+@import "shared/skill.css";
 
 * {
   padding: 0;
