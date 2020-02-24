@@ -3,6 +3,8 @@
 @import "shared/contactNavSide.css";
 @import "shared/index.css";
 @import "shared/skill.css";
+@import "shared/footer.css";
+@import "shared/header.css";
 
 * {
   padding: 0;
@@ -12,4 +14,18 @@
 .project-header {
   background-color: azure;
   text-align: center !important;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 0;
 }

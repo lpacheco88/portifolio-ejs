@@ -32,7 +32,8 @@ router.post("/", async (req, res) => {
   const skill = new Skill({
     name: req.body.name,
     workingWithSince: req.body.workingWithSince,
-    knowHowLevel: req.body.knowHowLevel
+    knowHowLevel: req.body.knowHowLevel,
+    description: req.body.description
   });
 
   saveSkillImg(skill, req.body.skillImg);

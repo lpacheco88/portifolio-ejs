@@ -3,6 +3,10 @@
     <input type="text" name="name" value="<%= skill.name %>">
 </div>
 <div>
+    <label>Desription</label>
+    <input type="text" name="description" value="<%= skill.description %>">
+</div>
+<div>
     <label>Knowing since</label>
     <input type="date" name="workingWithSince"
         value="<%= skill.workingWithSince == null ? '': skill.workingWithSince.toISOString().split('T')[0] %>">
