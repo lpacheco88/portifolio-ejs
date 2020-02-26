@@ -18,6 +18,8 @@ const skillRouter = require("./routes/skills");
 const costumerRouter = require("./routes/costumers");
 const gitRouter = require("./routes/git");
 const contactRouter = require("./routes/contact");
+const socialMediaRouter = require("./routes/socialMedias");
+const adminRouter = require("./routes/admin");
 
 //App setting and usage
 app.set("view engine", "ejs");
@@ -46,4 +48,6 @@ app.use("/skills", skillRouter);
 app.use("/costumers", costumerRouter);
 app.use("/git", gitRouter);
 app.use("/contacts", contactRouter);
+app.use("/socialMedias", socialMediaRouter);
+app.use("/admin", adminRouter);
 app.listen(process.env.PORT || 3000);

@@ -1,0 +1,5 @@
+npm i bcrypt
+
+npm i passport passport-localnpm i 
+
+npm i express-session express-flash
