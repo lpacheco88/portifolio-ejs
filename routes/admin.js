@@ -5,7 +5,11 @@ const passport = require("passport");
 const initializePassport = require("../passport-config");
 const flash = require("express-flash");
 const session = require("express-session");
-
+// returnable objetcs
+const Skill = require("../model/skill");
+const Costumer = require("../model/costumer");
+const Project = require("../model/project");
+const SocialMedia = require("../model/socialMedia");
 initializePassport(
   passport,
   (email) => users.find((user) => user.email === email),
@@ -27,8 +31,26 @@ router.use(
 router.use(passport.initialize());
 router.use(passport.session());
 
+// router.get("/", checkAuthenticated, async (req, res) => {
+//   res.render("admin/index", { name: "Luciano" });
+// });
+
 router.get("/", checkAuthenticated, async (req, res) => {
-  res.render("admin/index", { name: "Luciano" });
+  let searchOptions = {};
+  if (req.query.name != null && req.query.name != "") {
+    searchOptions.name = new RegExp(req.query.name, "i");
+  }
+
+  const costumers = await Costumer.find(searchOptions);
+  const skills = await Skill.find(searchOptions);
+  const projects = await Project.find(searchOptions);
+  const socials = await SocialMedia.find(searchOptions);
+  res.render("admin/index", {
+    costumers: costumers,
+    skills: skills,
+    projects: projects,
+    socials: socials
+  });
 });
 
 router.get("/login", async (req, res) => {
