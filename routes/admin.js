@@ -10,10 +10,13 @@ const Skill = require("../model/skill");
 const Costumer = require("../model/costumer");
 const Project = require("../model/project");
 const SocialMedia = require("../model/socialMedia");
+//User
+const User = require("../model/admin/user");
+
 initializePassport(
   passport,
-  (email) => users.find((user) => user.email === email),
-  (id) => users.find((user) => user.id === id)
+  (email) => User.find((user) => user.email === email),
+  (id) => User.find((user) => user.id === id)
 );
 
 const users = [];
@@ -31,10 +34,6 @@ router.use(
 router.use(passport.initialize());
 router.use(passport.session());
 
-// router.get("/", checkAuthenticated, async (req, res) => {
-//   res.render("admin/index", { name: "Luciano" });
-// });
-
 router.get("/", checkAuthenticated, async (req, res) => {
   let searchOptions = {};
   if (req.query.name != null && req.query.name != "") {
@@ -45,19 +44,26 @@ router.get("/", checkAuthenticated, async (req, res) => {
   const skills = await Skill.find(searchOptions);
   const projects = await Project.find(searchOptions);
   const socials = await SocialMedia.find(searchOptions);
+  const user = await User.findById(req.user);
+
   res.render("admin/index", {
     costumers: costumers,
     skills: skills,
     projects: projects,
-    socials: socials
+    socials: socials,
+    user: user.name
   });
 });
+
+router.get("/", checkAuthenticated, async (req, res) => {});
 
 router.get("/login", async (req, res) => {
   res.render("admin/login.ejs");
 });
 
 router.get("/register", async (req, res) => {
+  const users = await User.find().exec();
+  console.log(users);
   res.render("admin/register.ejs");
 });
 
@@ -68,13 +74,13 @@ router.get("/error", async (req, res) => {
 router.post("/register", async (req, res) => {
   try {
     const hashedPassword = await bcrypt.hash(req.body.password, 10);
-    users.push({
-      id: Date.now().toString(),
+    const user = new User({
       name: req.body.name,
       email: req.body.email,
       password: hashedPassword
     });
 
+    const newUser = await user.save();
     res.redirect("/admin/login");
     console.log("post register");
   } catch (error) {
