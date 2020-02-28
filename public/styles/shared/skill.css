@@ -46,7 +46,7 @@ h2 {
   padding-top: 20px;
 }
 
-.btn-primary {
+/* .btn-primary {
   background-color: #06bc9b;
   background-image: -webkit-gradient(
     linear,
@@ -65,12 +65,12 @@ h2 {
   line-height: 20px;
   text-align: left;
   color: #fff !important;
-}
+} */
 
-.btn-primary .fa-align-right {
+/* .btn-primary .fa-align-right {
   position: absolute;
   right: 30px;
-}
+} */
 
 .fa {
   display: inline-block;

@@ -19,8 +19,6 @@ initializePassport(
   (id) => User.find((user) => user.id === id)
 );
 
-const users = [];
-
 router.use(express.urlencoded({ extended: false }));
 router.use(flash());
 router.use(
@@ -34,6 +32,7 @@ router.use(
 router.use(passport.initialize());
 router.use(passport.session());
 
+//LoggedIn page router
 router.get("/", checkAuthenticated, async (req, res) => {
   let searchOptions = {};
   if (req.query.name != null && req.query.name != "") {
@@ -45,33 +44,88 @@ router.get("/", checkAuthenticated, async (req, res) => {
   const projects = await Project.find(searchOptions);
   const socials = await SocialMedia.find(searchOptions);
   const user = await User.findById(req.user);
+  const registredUsers = await User.find(searchOptions);
 
   res.render("admin/index", {
     costumers: costumers,
     skills: skills,
     projects: projects,
     socials: socials,
-    user: user.name
+    user: user.name,
+    registredUsers: registredUsers
   });
 });
 
-router.get("/", checkAuthenticated, async (req, res) => {});
+// //Show page Route
+router.get("/crud/:userid", checkAuthenticated, async (req, res) => {
+  try {
+    const user = await User.findById(req.user);
 
+    res.render("admin/crud/show", {
+      user: user
+    });
+  } catch (error) {}
+});
+
+//Login page route
 router.get("/login", async (req, res) => {
   res.render("admin/login.ejs");
 });
 
+//Register page route
 router.get("/register", async (req, res) => {
   const users = await User.find().exec();
-  console.log(users);
+
   res.render("admin/register.ejs");
 });
 
+//Edit page route
+router.get("/:id/edit", checkAuthenticated, async (req, res) => {
+  try {
+    const user = await User.findById(req.params.id);
+
+    res.render("admin/crud/edit", { user: user });
+  } catch (error) {
+    console.log("error");
+    res.redirect("/admin");
+  }
+});
+
+//Update page route
+router.put("/edit/:id", checkAuthenticated, async (req, res) => {
+  let user;
+  try {
+    user = await User.findById(req.params.id);
+    user.name = req.body.name;
+    user.email = req.body.email;
+    await user.save();
+
+    res.redirect(`/admin/`);
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+//Delete page route
+router.delete("/delete/user/:id", checkAuthenticated, async (req, res) => {
+  let user;
+  try {
+    user = await User.findById(req.params.id);
+    await user.remove();
+
+    res.redirect("/admin/");
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+//Error route - if something is typed incorrect for example
 router.get("/error", async (req, res) => {
   res.render("admin/error.ejs");
 });
 
-router.post("/register", async (req, res) => {
+//Register route
+router.post("/register/new/user", async (req, res) => {
   try {
     const hashedPassword = await bcrypt.hash(req.body.password, 10);
     const user = new User({
@@ -81,13 +135,13 @@ router.post("/register", async (req, res) => {
     });
 
     const newUser = await user.save();
-    res.redirect("/admin/login");
-    console.log("post register");
+    res.redirect("/admin");
   } catch (error) {
     res.redirect("/admin/register");
   }
 });
 
+//Login route
 router.post(
   "/login",
   passport.authenticate("local", {
@@ -97,17 +151,19 @@ router.post(
   })
 );
 
+//Logout route
 router.delete("/logout", (req, res) => {
   req.logout();
   res.redirect("/admin/login");
 });
 
+//Check if user has loggedIn
 function checkAuthenticated(req, res, next) {
   if (req.isAuthenticated()) {
     return next();
   }
 
-  res.redirect("admin/login");
+  res.redirect("/admin/login");
 }
 
 function checkNotAuthenticated(req, res, next) {

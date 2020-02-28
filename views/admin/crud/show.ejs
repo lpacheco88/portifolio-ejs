@@ -1,0 +1,14 @@
+<h2 class="page-header"><%= user.name %></h2>
+
+<div>
+    <h4>Usuario ID: <%= user.id%></h4>
+</div>
+<div>
+    <h4>Usuario Pass: <%= user.password%></h4>
+</div>
+
+
+
+
+<a href="/crud/<%=user.id %>/edit">Edit</a>
+<%- include('../../partials/deleteForm',{url: `/admin/${user.id}`}) %>

@@ -1,3 +1,7 @@
 .lets_talk {
   text-align: left;
 }
+
+.footer-border {
+  border-top: 10px solid #f6f6f6;
+}
