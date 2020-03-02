@@ -15,11 +15,11 @@ const skillSchema = new mongoose.Schema({
   },
   skillImage: {
     type: Buffer,
-    required: true
+    required: false
   },
   skillImageType: {
     type: String,
-    required: true
+    required: false
   },
   knowHowLevel: {
     type: Number,

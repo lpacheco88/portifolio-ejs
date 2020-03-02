@@ -36,8 +36,6 @@ router.post("/", async (req, res) => {
     description: req.body.description
   });
 
-  saveSkillImg(skill, req.body.skillImg);
-
   try {
     const newSkill = await skill.save();
     res.redirect(`skills/${newSkill.id}`);

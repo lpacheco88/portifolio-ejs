@@ -1,80 +1,42 @@
-<main role="main" style="margin-top: 1.5em;">
+<div class="download_area">
   <div class="container">
-    <div class="card-deck mb-3 text-center">
-      <div class="card mb-4 box-shadow">
-        <div class="card-header">
-          <h4 class="my-0 font-weight-normal">Backend Dev</h4>
-        </div>
-        <div class="card-body">
-          <ul class="list-unstyled mt-3 mb-4">
-            <li>C#</li>
-            <li>VB.NET</li>
-            <li>NET.CORE</li>
-            <li>Web API</li>
-          </ul>
-          <button type="button" class="btn btn-lg btn-block btn-primary">
-            Ver +
-          </button>
-        </div>
-      </div>
-      <div class="card mb-4 box-shadow">
-        <div class="card-header">
-          <h4 class="my-0 font-weight-normal">Mobile dev</h4>
-        </div>
-        <div class="card-body">
-          <ul class="list-unstyled mt-3 mb-4">
-            <li>20 users included</li>
-            <li>10 GB of storage</li>
-            <li>Priority email support</li>
-            <li>Help center access</li>
-          </ul>
-          <button type="button" class="btn btn-lg btn-block btn-primary">
-            Get started
-          </button>
-        </div>
-      </div>
-      <div class="card mb-4 box-shadow">
-        <div class="card-header">
-          <h4 class="my-0 font-weight-normal">Frontend</h4>
-        </div>
-        <div class="card-body">
-          <ul class="list-unstyled mt-3 mb-4">
-            <li>30 users included</li>
-            <li>15 GB of storage</li>
-            <li>Phone and email support</li>
-            <li>Help center access</li>
-          </ul>
-          <button type="button" class="btn btn-lg btn-block btn-primary">
-            Contact us
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
-</main>
-
-<div role="main">
-  <div class="spacing-small-bottom">
-    <h2 class="section-title">O que eu faço</h2>
-  </div>
-  <div class="grid grid--tb1-2 grid--m-1">
-    <div class="grid__col grid__col--6">
-      <div class="service txt-center">
-        <span class="service__icon">
-          Icon
-        </span>
-        <div class="content-styles">
-          <h3 class="h4">
-            RPA
-          </h3>
-          <p class="txt-large txt-dark">
-            Robotic Process Automation
+    <div class="row row_index">
+      <div class="col-lg-6 col-md-6">
+        <div class="download_left">
+          <p>
+            Atualmente trabalhando em tempo integral como desenvolvedor de
+            processos automatizados utilizando
+            <a href="https://www.uipath.com/">UiPath</a>. Nos tempos livres
+            (20h/semana) freela backend em projeto C#, Sql Server como base de
+            dados e Angular JS(1.5) no frontend.
           </p>
           <p>
-            Trabalho como desenvolvedor RPA em tempo integral. Foco em
-            automatizar processos utilizando Uipath. Parece interssante?
-            <a href="#">Ver+</a>
+            Achou interessante ou quer saber mais? Clica no botão aqui embaixo
+            ou nas redes socias ali do lado.
           </p>
+          <a href="/download" class="boxed-btn3-line">Baixar CV</a>
+        </div>
+      </div>
+      <div class="col-lg-5 offset-lg-1 col-md-6">
+        <div class="progress_skills">
+          <% skills.forEach(skill => { %>
+          <div class="single_progress">
+            <div class="label d-flex justify-content-between">
+              <span><a href="skills/<%=skill.id%>"><%=skill.name%></a></span>
+              <span><%=skill.knowHowLevel%>%</span>
+            </div>
+            <div class="progress">
+              <div
+                class="progress-bar "
+                role="progressbar"
+                style="width:<%=skill.knowHowLevel%>%"
+                aria-valuenow="25"
+                aria-valuemin="0"
+                aria-valuemax="100"
+              ></div>
+            </div>
+          </div>
+          <%})%>
         </div>
       </div>
     </div>

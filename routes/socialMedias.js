@@ -26,16 +26,16 @@ router.post("/", async (req, res) => {
   const socials = new SocialMedia({
     name: req.body.name,
     description: req.body.description,
-    url: req.body.backEndTec,
-    tip: req.body.frontEndTec
+    url: req.body.url,
+    tip: req.body.tip
   });
 
-  saveSocialImg(socials, req.body.socialImg);
+  //saveSocialImg(socials, req.body.socialImg);
   try {
     const newSocial = await socials.save();
-    res.redirect(`socials/${newSocial.id}`);
+    res.redirect(`socialMedias/${newSocial.id}`);
   } catch (error) {
-    res.render("socials/new", {
+    res.render("socialMedias/new", {
       project: project,
       errorMEssage: "Error creating project"
     });
@@ -75,7 +75,7 @@ router.put("/:id", async (req, res) => {
       saveSocial(social, req.body.costuImg);
     }
     await social.save();
-    res.redirect(`/socials/${social.id}`);
+    res.redirect(`/socialMedias/${social.id}`);
   } catch (error) {
     res.render("costumers/new", {
       social: social,
@@ -116,10 +116,10 @@ router.delete("/:id", async (req, res) => {
   try {
     social = await SocialMedia.findById(req.params.id);
     await social.remove();
-    res.redirect("/costumers");
+    res.redirect("/socialMedias");
   } catch (error) {
     if (social != null) {
-      res.render("socials/show", {
+      res.render("socialMedias/show", {
         social: social,
         errorMessage: "Could not remove social, reason: " + error
       });

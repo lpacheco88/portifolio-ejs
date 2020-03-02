@@ -1,0 +1,14 @@
+<main role="main">
+  <div class="album py-5 bg-light">
+    <div class="container">
+      <div class="row">
+        <% socials.forEach(social => { %> <%- include('../partials/crudBtn',
+        {url:`/socialMedias/${social.id}`})%>
+        <p><%=social.name%></p>
+        <br />
+        <%})%>
+      </div>
+    </div>
+    <a href="socialMedias/new">Adicionar nova Skill</a>
+  </div>
+</main>
