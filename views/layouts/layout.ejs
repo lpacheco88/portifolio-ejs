@@ -56,6 +56,11 @@
 
     <script defer src="/javascripts/fileUpload.js"></script>
     <link rel="stylesheet" href="/styles/main.css" />
+    <link
+      rel="stylesheet"
+      media="screen and (max-width: 882px)"
+      href="/styles/widescreen.css"
+    />
 
     <title>Luciano Pacheco - Portifolio</title>
   </head>
@@ -63,63 +68,7 @@
   <body>
     <div class="container">
       <%- include('../partials/header.ejs')%>
-      <div class="follow-me">
-        <ul>
-          <li>
-            <small>Follow me</small>
-          </li>
-          <li>
-            <a
-              class="facebook"
-              target="_blank"
-              href="#"
-              title="Follow on Facebook"
-            >
-              <span>Follow on Facebook</span>
-            </a>
-          </li>
-          <li>
-            <a
-              class="github"
-              target="_blank"
-              href="/Git"
-              title="Follow on GitHub"
-            >
-              <span>Follow on Github</span>
-            </a>
-          </li>
-          <li>
-            <a
-              class="linkedin"
-              target="_blank"
-              href="#"
-              title="Connect on Linkedin"
-            >
-              <span>Connect on Linkedin</span>
-            </a>
-          </li>
-          <li>
-            <a
-              class="twitter"
-              target="_blank"
-              href="#"
-              title="Follow on Twitter"
-            >
-              <span>Follow on Twitter</span>
-            </a>
-          </li>
-          <li>
-            <a
-              class="instagram"
-              target="_blank"
-              href="#"
-              title="Follow on Instagram"
-            >
-              <span>Follow on Instagram</span>
-            </a>
-          </li>
-        </ul>
-      </div>
+
       <div class="inner-container">
         <%- include('../partials/errorMessage.ejs')%> <%- body%> <%-
         include('../partials/footer.ejs')%>

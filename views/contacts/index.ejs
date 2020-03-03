@@ -1,63 +1,114 @@
 <div class="row">
-    <div class="col-md-4 col-sm-4">
-        <div class="row">
-            <div class="col-md-12 margin-top">
-                <img class="img-center img-responsive" src="/imgs/city-logo.jpg" alt title>
+  <div class="col-md-4 col-sm-4">
+    <div class="row">
+      <div class="col-md-12 margin-top">
+        <img
+          class="img-center img-responsive"
+          src="/imgs/city-logo.jpg"
+          alt
+          title
+        />
+      </div>
 
-            </div>
-            <div class="wrapper text-center">
-                <h2 class="margin-bottom">Da um toque!</h2>
-                <p>Horario comercial das 08:00 as 18:00 em dias da semana. Morando atualmente em Blumenau-SC, Brasil.
-                </p>
-
-            </div>
-            <p class="padding-bottom"></p>
-
-        </div>
+      <p class="padding-bottom"></p>
     </div>
-    <div class="col-md-8 col-sm-8 margin-top">
-        <div class="wrapper padding-bottom">
-            <div class="gf_browser_chrome gform_wrapper" id="gform_wrapper_1">
-
-                <div class="cform_heading">
-                    <h3 class="gform_title h2">Alguma pergunta? Preenche aqui embaixo</h3>
-                </div>
-                <div class="cform_body">
-                    <ul class="cform_body">
-
-                    </ul>
-
-                </div>
-                <form>
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <label for="inputEmail4">Nome</label>
-                            <input type="text" class="form-control" id="inputEmail4" placeholder="Email">
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label for="inputPassword4">Email</label>
-                            <input type="email" class="form-control" id="inputPassword4" placeholder="Password">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="inputAddress">De onde voce fala?</label>
-                        <input type="text" class="form-control" id="inputAddress" placeholder="De muito longe...">
-                    </div>
-
-
-                    <div class="form-row">
-                        <label for="exampleFormControlTextarea1">Mensagem</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                    </div>
-
-                    <div class="form-row">
-                        <button type="submit" class="btn btn-primary">Enviar</button>
-                    </div>
-                </form>
-
-            </div>
-
+  </div>
+  <div class="col-md-8 col-sm-8 margin-top">
+    <div class="wrapper padding-bottom">
+      <form
+        method="POST"
+        enctype="multipart/form-data"
+        id="gform_1"
+        action="contacts/formulario"
+      >
+        <div class="cform_heading">
+          <h3 class="gform_title h2">Alguma pergunta? Preenche aqui embaixo</h3>
         </div>
-    </div>
+        <div class="cform_body">
+          <ul class="cform_body"></ul>
+        </div>
+        <div class="gform_body">
+          <ul
+            id="gform_fields_1"
+            class="gform_fields top_label form_sublabel_below description_below"
+          >
+            <li
+              id="field_1_1"
+              class="gfield field_sublabel_below field_description_below gfield_visibility_visible"
+            >
+              <label
+                class="gfield_label gfield_label_before_complex"
+                for="input_1_1"
+                >Nome</label
+              >
+              <div class="ginput_container ginput_container_name">
+                <input
+                  name="nome"
+                  id="nome"
+                  type="text"
+                  value=""
+                  class="large form-control"
+                  tabindex="1"
+                  aria-invalid="false"
+                />
+              </div>
+            </li>
+            <li
+              id="field_1_2"
+              class="gfield gfield_contains_required field_sublabel_below field_description_below gfield_visibility_visible"
+            >
+              <label class="gfield_label" for="input_1_2"
+                >Email<span class="gfield_required">*</span></label
+              >
+              <div class="ginput_container ginput_container_email">
+                <input
+                  name="email"
+                  id="email"
+                  type="text"
+                  value=""
+                  class="large form-control"
+                  tabindex="2"
+                  aria-required="true"
+                  aria-invalid="false"
+                />
+              </div>
+            </li>
 
+            <li
+              id="field_1_4"
+              class="gfield textarea_short field_sublabel_below field_description_below gfield_visibility_visible"
+            >
+              <label class="gfield_label" for="input_1_4">Mensagem</label>
+              <div class="ginput_container ginput_container_textarea">
+                <textarea
+                  name="mensagem"
+                  id="mensagem"
+                  class="textarea large form-control"
+                  tabindex="5"
+                  aria-invalid="false"
+                  rows="5"
+                  cols="50"
+                ></textarea>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="gform_footer top_label">
+          <div class="row btn-pull-up">
+            <div
+              class="col-md-offset-7 col-md-6 col-sm-offset-3 col-sm-9 gform_button_wrap"
+            >
+              <input
+                type="submit"
+                id="gform_submit_button_1"
+                class="gform_button button btn btn-primary btn-block"
+                value="Enviar"
+                tabindex="8"
+              />
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
 </div>

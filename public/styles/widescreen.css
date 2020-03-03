@@ -1,0 +1,57 @@
+.follow-me {
+  display: none;
+}
+
+.sidenav {
+  display: initial;
+}
+
+.single_links {
+  border: 1px solid #7a5444;
+  padding: 25px 30px;
+  cursor: pointer;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
+}
+
+#mySidenav a {
+  position: absolute;
+  left: -80px;
+  transition: 0.3s;
+  padding: 15px;
+  width: 100px;
+  text-decoration: none;
+  font-size: 20px;
+  color: white;
+  border-radius: 0 5px 5px 0;
+}
+
+.dummy {
+  display: inline !important;
+}
+
+#mySidenav a:hover {
+  left: 0;
+}
+
+#about {
+  top: 20px;
+  background-color: #4caf50;
+}
+
+#blog {
+  top: 80px;
+  background-color: #2196f3;
+}
+
+#projects {
+  top: 140px;
+  background-color: #f44336;
+}
+
+#contact {
+  top: 200px;
+  background-color: #555;
+}

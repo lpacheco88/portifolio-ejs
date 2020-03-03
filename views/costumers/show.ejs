@@ -1,25 +1,23 @@
 <h2 class="page-header"><%= costumer.name %></h2>
 
 <div>
-    <a href="<%= costumer.urlRoot%>">Costumer site</a>
+  <a href="<%= costumer.urlRoot%>">Costumer site</a>
 </div>
 <div>
-    Job description: <%= costumer.jobDescription%>
+  Job description: <%= costumer.jobDescription%>
 </div>
 <div>
-    Date start: <%= costumer.dateFrom.toDateString()%>
+  Date start: <%= costumer.dateFrom.toDateString()%>
 </div>
 <div>
-    End date: <%= costumer.dateFinal.toDateString()%>
+  End date: <%= costumer.dateFinal.toDateString()%>
 </div>
 <div>
-    Costumer review: <%= costumer.review%>
+  Costumer review: <%= costumer.review%>
 </div>
 <div>
-    Side note: <%= costumer.sideNote%>
+  Side note: <%= costumer.sideNote%>
 </div>
 
-
-
-<a href="/user/<%=user.id %>/edit">Edit</a>
-<%- include('../partials/deleteForm',{url: `/admin/${user.id}`}) %>
+<a href="/costumers/<%=costumer.id %>/edit">Edit</a>
+<%- include('../partials/deleteForm',{url: `/costumers/${costumer.id}`}) %>

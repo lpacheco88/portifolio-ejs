@@ -7,3 +7,6 @@ npm i express-session express-flash
 npm i express-fileupload
 
 $ npm install --save multer
+
+
+npm install express-mailer

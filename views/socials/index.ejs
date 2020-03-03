@@ -2,13 +2,22 @@
   <div class="album py-5 bg-light">
     <div class="container">
       <div class="row">
-        <% socials.forEach(social => { %> <%- include('../partials/crudBtn',
-        {url:`/socialMedias/${social.id}`})%>
-        <p><%=social.name%></p>
-        <br />
+        <% socials.forEach(social => { %>
+        <div>
+          <%=social.name%>
+          <div>
+            <%- include('../partials/crudBtn',
+            {url:`/socialMedias/${social.id}`})%>
+          </div>
+          <small class="text-muted"
+            ><%- include('../partials/deleteForm',
+            {url:`/socialMedias/${social.id}`})%></small
+          >
+        </div>
+
         <%})%>
       </div>
     </div>
-    <a href="socialMedias/new">Adicionar nova Skill</a>
+    <a href="socialMedias/new">Adicionar nova media</a>
   </div>
 </main>
